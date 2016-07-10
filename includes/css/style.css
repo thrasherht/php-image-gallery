@@ -1,0 +1,21 @@
+body {
+	background-color:grey;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-size:cover;
+}
+.container {
+	width:85%;
+	margin: auto;
+}
+.logo-box {
+    width: 200px;
+    height: 200px;
+    margin: 7px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px #000;
+}
