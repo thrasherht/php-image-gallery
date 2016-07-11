@@ -50,7 +50,7 @@ class Controller extends BaseController
             $im = imagecreatefrompng($source_image);
             $image_p = imagecreatetruecolor ($new_width, $new_height);
             imagealphablending($image_p, false);
-            imagecopyresampled($image_p, $im, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
             imagesavealpha($image_p, true);
             imagepng($image_p, $destination_image_url);
 
@@ -66,7 +66,7 @@ class Controller extends BaseController
 
         } else {
             echo "unable to load image source, error on $source_image";
-    	error_log("There are a problem processing the thumbnail for $source_image");
+            error_log("There are a problem processing the thumbnail for $source_image");
         }
     }}
 
