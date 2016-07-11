@@ -1,5 +1,7 @@
 <?php
 
+use ImageGallery\Http\Controllers\Controller;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -34,7 +36,7 @@ Route::get('/', function () {
 
     foreach($scanned_directory as $file) {
     	//check for and create thumbnails
-    	createthumb($image_directory."/".$file,$thumbnail_directory."/".$file,30000,300);
+    	Controller::createthumb($image_directory."/".$file,$thumbnail_directory."/".$file,30000,300);
     }
 
     return view('default', $data);

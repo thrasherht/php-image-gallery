@@ -12,15 +12,15 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
-    public function createthumb($source_image,$destination_image_url, $get_width, $get_height){
+    public static function createthumb($source_image,$destination_image_url, $get_width, $get_height){
         if (!file_exists($destination_image_url)){
         ini_set('memory_limit','512M');
         set_time_limit(0);
 
-        $image_array         = explode('/',$source_image);
+        $image_array = explode('/',$source_image);
         $image_name = $image_array[count($image_array)-1];
-        $max_width     = $get_width;
-        $max_height =$get_height;
+        $max_width = $get_width;
+        $max_height = $get_height;
         $quality = 100;
 
         //Set image ratio

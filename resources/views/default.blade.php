@@ -26,7 +26,9 @@
 
     <div class="container">
         <div class="row">
-            Stuff goes here normally
+            @foreach ($files as $file)
+                <a href="images/{{ $file }}" data-lightbox="Snips Gallery"><div class="col-sm-12 col-md-3 col-lg-2"><div class="logo-box" style="background-image:url(thumbs/{{ $file }});" ></div></div></a>
+            @endforeach
         </div>
     </div>
 
