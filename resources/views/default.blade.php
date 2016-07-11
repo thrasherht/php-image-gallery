@@ -18,8 +18,8 @@
 <![endif]-->
 <!--End Bootstrap includes-->
 
-	<link rel="stylesheet" href="includes/css/style.css">
-	<link rel="stylesheet" href="includes/css/lightbox.css">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/lightbox.css') }}">
 </head>
 <body>
     <div style="width:100%;"><h2>Gaming and other related content</h2></div>
@@ -30,6 +30,6 @@
         </div>
     </div>
 
-<script src="includes/js/lightbox-plus-jquery.min.js"></script>
+<script src="{{ asset('js/lightbox-plus-jquery.min.js') }}"></script>
 </body>
 </html>
