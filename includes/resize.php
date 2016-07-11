@@ -52,7 +52,6 @@ function createthumb($source_image,$destination_image_url, $get_width, $get_heig
         imagedestroy($image_p);
  
     } else {
-        echo 'unable to load image source';
-        exit;
+        echo "unable to load image source, error on $source_image";
     }
 }}
