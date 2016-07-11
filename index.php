@@ -1,6 +1,6 @@
 <?php
 //Pull in included files
-require('./includes/header.html');
+// Moved to blade
 require('./includes/resize.php');
 //configuration
 $image_directory = "images";
@@ -12,9 +12,8 @@ if (!is_dir("$image_directory")) {
 if (!is_dir("$thumbnail_directory")) {
 	mkdir("$thumbnail_directory", 755, true);
 };
-//Opening div tags
-print "<div class=\"container\">\n";
-print "<div class=\"row\">\n";
+// Moved to blade
+
 //Setup directory for images
 $directory = "$image_directory";
 //read through image directory and get rid of .. , . , .htaccess , and .ftpquota
@@ -28,11 +27,8 @@ foreach($scanned_directory as $file) {
 	print '<a href="images/'.$file.'" data-lightbox="Snips Gallery"><div class="col-sm-12 col-md-3 col-lg-2"><div class="logo-box" style="background-image:url(thumbs/'.$file.');" ></div></div></a>';
 	print "\n";
 }
-print '
-</div>
-</div>
-';
+// Moved to blade
 
 //Footer include
-require('./includes/footer.html');
+// Moved to blade
 ?>

@@ -1,6 +1,8 @@
-<!doctype html>
-
-<html lang="en">
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
         <meta name="description" content="Image Gallery">
@@ -20,4 +22,14 @@
 	<link rel="stylesheet" href="includes/css/lightbox.css">
 </head>
 <body>
-<div style="width:100%;"><h2>Gaming and other related content</h2></div>
+    <div style="width:100%;"><h2>Gaming and other related content</h2></div>
+
+    <div class="container">
+        <div class="row">
+            Stuff goes here normally
+        </div>
+    </div>
+
+<script src="includes/js/lightbox-plus-jquery.min.js"></script>
+</body>
+</html>
