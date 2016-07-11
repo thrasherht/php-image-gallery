@@ -53,5 +53,6 @@ function createthumb($source_image,$destination_image_url, $get_width, $get_heig
  
     } else {
         echo "unable to load image source, error on $source_image";
+	error_log("There are a problem processing the thumbnail for $source_image");
     }
 }}
