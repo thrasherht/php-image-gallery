@@ -1,6 +1,0 @@
-<?php
-print "
-</body>
-</html>
-"
-?>

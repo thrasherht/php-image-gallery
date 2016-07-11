@@ -1,6 +1,6 @@
 <?php
 //Pull in included files
-require('./includes/header.php');
+require('./includes/header.html');
 require('./includes/resize.php');
 //configuration
 $image_directory = "images";
@@ -25,10 +25,14 @@ foreach($scanned_directory as $file) {
 	//check for and create thumbnails
 	createthumb("$image_directory/$file","$thumbnail_directory/$file",30000,300);
 	//Create HTML code for each image
-	print '<a href="images/'.$file.'"><div class="col-sm-12 col-md-3 col-lg-2"><div class="logo-box" style="background-image:url(thumbs/'.$file.');" ></div></div></a>';
+	print '<a href="images/'.$file.'" data-lightbox="Snips Gallery"><div class="col-sm-12 col-md-3 col-lg-2"><div class="logo-box" style="background-image:url(thumbs/'.$file.');" ></div></div></a>';
 	print "\n";
 }
-print "</div>\n</div>";
+print '
+</div>
+</div>
+';
+
 //Footer include
-require('./includes/footer.php');
+require('./includes/footer.html');
 ?>
