@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace ImageGallery\Events;
 
 abstract class Event
 {
