@@ -1,10 +1,11 @@
 <?php
 //Pull in included files
-require('./includes/header.html');
-require('./includes/resize.php');
+	require('./includes/header.html');
+	require('./includes/resize.php');
 //configuration
 $image_directory = "images";
 $thumbnail_directory = "thumbs";
+
 //Check for and create directory for images and thumbnails
 if (!is_dir("$image_directory")) {
     mkdir("$image_directory", 0755, true);
@@ -12,9 +13,11 @@ if (!is_dir("$image_directory")) {
 if (!is_dir("$thumbnail_directory")) {
 	mkdir("$thumbnail_directory", 755, true);
 };
+
 //Opening div tags
 print "<div class=\"container\">\n";
 print "<div class=\"row\">\n";
+
 //Setup directory for images
 $directory = "$image_directory";
 //read through image directory and get rid of .. , . , .htaccess , and .ftpquota
