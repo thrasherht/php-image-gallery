@@ -8,7 +8,7 @@ function createthumb($source_image,$destination_image_url, $get_width, $get_heig
     $image_name = $image_array[count($image_array)-1];
     $max_width     = $get_width;
     $max_height =$get_height;
-    $quality = 100;
+    $quality = 50;
  
     //Set image ratio
     list($width, $height) = getimagesize($source_image);
