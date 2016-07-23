@@ -1,10 +1,18 @@
 <?php
-//Pull in included files
-	require('./includes/header.html');
-	require('./includes/resize.php');
 //configuration
 $image_directory = "images";
 $thumbnail_directory = "thumbs";
+define('use_bootstrap_gallery', false);
+
+//Pull in included files
+//Check if bootstrap gallery is enabled
+if ( use_bootstrap_gallery ){
+	require('./includes/header-bootstrap-gallery.html');
+} else {
+	require('./includes/header.html');
+}
+
+	require('./includes/resize.php');
 
 //Check for and create directory for images and thumbnails
 if (!is_dir("$image_directory")) {
@@ -15,9 +23,12 @@ if (!is_dir("$thumbnail_directory")) {
 };
 
 //Opening div tags
-print "<div class=\"container\">\n";
-print "<div class=\"row\">\n";
-
+if ( use_bootstrap_gallery ){
+	print "<div id=\"links\">";
+} else {
+	print "<div class=\"container\">\n";
+	print "<div class=\"row\">\n";
+}
 //Setup directory for images
 $directory = "$image_directory";
 //read through image directory and get rid of .. , . , .htaccess , and .ftpquota
@@ -37,5 +48,10 @@ print '
 ';
 
 //Footer include
-require('./includes/footer.html');
+//Check if bootstrap gallery is enabled
+if ( use_bootstrap_gallery ){
+	require('./includes/footer-bootstrap-gallery.html');
+} else {
+	require('./includes/footer.html');
+}
 ?>
