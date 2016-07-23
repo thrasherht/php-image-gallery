@@ -2,7 +2,7 @@
 //configuration
 $image_directory = "images";
 $thumbnail_directory = "thumbs";
-define('use_bootstrap_gallery', false);
+define('use_bootstrap_gallery', true);
 
 //Pull in included files
 //Check if bootstrap gallery is enabled
@@ -28,15 +28,27 @@ $directory = "$image_directory";
 $scanned_directory = array_diff(scandir($directory), array('..', '.', '.htaccess', '.ftpquota'));
 //loop through all the files from the directory listing
 
+if ( use_bootstrap_gallery ) {
+
+foreach($scanned_directory as $file) {
+//do your work here
+        //check for and create thumbnails
+        createthumb("$image_directory/$file","$thumbnail_directory/$file",30000,300);
+        //Create HTML code for each image
+print '<a href="'.$image_directory.'/'.$file.'" title="'.$file.'" data-gallery>
+<img src="'.$thumbnail_directory.'/'.$file.'" alt="'.$file.'">
+</a>';
+        print "\n"; }
+} else { 
+
 foreach($scanned_directory as $file) {
   //do your work here
 	//check for and create thumbnails
 	createthumb("$image_directory/$file","$thumbnail_directory/$file",30000,300);
 	//Create HTML code for each image
-	print '<a href="images/'.$file.'" data-lightbox="Snips Gallery"><div class="col-sm-12 col-md-3 col-lg-2"><div class="logo-box" style="background-image:url(thumbs/'.$file.');" ></div></div></a>';
-	print "\n";
+	print '<a href="'.$image_directory.'/'.$file.'" data-lightbox="Snips Gallery"><div class="col-sm-12 col-md-3 col-lg-2"><div class="logo-box" style="background-image:url('.$thumbnail_directory.'/'.$file.');" ></div></div></a>';
+	print "\n"; }
 }
-
 //Footer include
 //Check if bootstrap gallery is enabled
 if ( use_bootstrap_gallery ){
