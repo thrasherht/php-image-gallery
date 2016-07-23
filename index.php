@@ -11,7 +11,7 @@ if (!is_dir("$image_directory")) {
     mkdir("$image_directory", 0755, true);
 };
 if (!is_dir("$thumbnail_directory")) {
-	mkdir("$thumbnail_directory", 755, true);
+    mkdir("$thumbnail_directory", 0755, true);
 };
 
 //Opening div tags
