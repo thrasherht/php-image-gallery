@@ -2,16 +2,9 @@
 //configuration
 $image_directory = "images";
 $thumbnail_directory = "thumbs";
-define('use_bootstrap_gallery', false);
 
 //Pull in included files
-//Check if bootstrap gallery is enabled
-if ( use_bootstrap_gallery ){
-	require('./includes/header-bootstrap-gallery.html');
-} else {
 	require('./includes/header.html');
-}
-
 	require('./includes/resize.php');
 
 //Check for and create directory for images and thumbnails
@@ -28,19 +21,6 @@ $directory = "$image_directory";
 $scanned_directory = array_diff(scandir($directory), array('..', '.', '.htaccess', '.ftpquota'));
 //loop through all the files from the directory listing
 
-if ( use_bootstrap_gallery ) {
-
-foreach($scanned_directory as $file) {
-//do your work here
-        //check for and create thumbnails
-        createthumb("$image_directory/$file","$thumbnail_directory/$file",30000,300);
-        //Create HTML code for each image
-print '<a href="'.$image_directory.'/'.$file.'" title="'.$file.'" data-gallery>
-<img src="'.$thumbnail_directory.'/'.$file.'" alt="'.$file.'">
-</a>';
-        print "\n"; }
-} else { 
-
 foreach($scanned_directory as $file) {
   //do your work here
 	//check for and create thumbnails
@@ -48,12 +28,8 @@ foreach($scanned_directory as $file) {
 	//Create HTML code for each image
 	print '<a href="'.$image_directory.'/'.$file.'" title="'.$file.'" class="lightbox_trigger"><img src="'.$thumbnail_directory.'/cropped/'.$file.'"></a>';
 	print "\n"; }
-}
+
 //Footer include
 //Check if bootstrap gallery is enabled
-if ( use_bootstrap_gallery ){
-	require('./includes/footer-bootstrap-gallery.html');
-} else {
 	require('./includes/footer.html');
-}
 ?>
