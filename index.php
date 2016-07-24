@@ -46,7 +46,7 @@ foreach($scanned_directory as $file) {
 	//check for and create thumbnails
 	createthumb("$image_directory/$file","$thumbnail_directory/$file",30000,300);
 	//Create HTML code for each image
-	print '<a href="'.$image_directory.'/'.$file.'" data-lightbox="Snips Gallery"><div class="col-sm-12 col-md-3 col-lg-2"><div class="logo-box" style="background-image:url('.$thumbnail_directory.'/'.$file.');" ></div></div></a>';
+	print '<a href="'.$image_directory.'/'.$file.'" title="'.$file.'" class="lightbox_trigger"><img src="'.$thumbnail_directory.'/cropped/'.$file.'"></a>';
 	print "\n"; }
 }
 //Footer include
