@@ -4,6 +4,10 @@ body {
     background:#efefef;
     text-align:center; /* used to center div in IE */
 }
+div.container {
+    width:80%;
+    margin: 0 auto;
+}
 #wrapper {
     width:600px;
     margin:0 auto; /*centers the div horizontally in all browsers (except IE)*/

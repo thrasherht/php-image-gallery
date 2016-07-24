@@ -56,3 +56,6 @@ function createthumb($source_image,$destination_image_url, $get_width, $get_heig
 	error_log("There are a problem processing the thumbnail for $source_image");
     }
 }}
+function createcrop($source_thumbnail, $destination_crop, $crop_width, $crop_height){
+	if (!file_exists($destination_crop)){
+		}

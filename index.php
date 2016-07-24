@@ -2,7 +2,7 @@
 //configuration
 $image_directory = "images";
 $thumbnail_directory = "thumbs";
-define('use_bootstrap_gallery', true);
+define('use_bootstrap_gallery', false);
 
 //Pull in included files
 //Check if bootstrap gallery is enabled
