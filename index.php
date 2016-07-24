@@ -24,9 +24,9 @@ $scanned_directory = array_diff(scandir($directory), array('..', '.', '.htaccess
 foreach($scanned_directory as $file) {
   //do your work here
 	//check for and create thumbnails
-	createthumb("$image_directory/$file","$thumbnail_directory/$file",30000,300);
+	createthumb("$image_directory/$file","$thumbnail_directory/$file",200,200);
 	//Create HTML code for each image
-	print '<a href="'.$image_directory.'/'.$file.'" title="'.$file.'" class="lightbox_trigger"><img src="'.$thumbnail_directory.'/cropped/'.$file.'"></a>';
+	print '<a href="'.$image_directory.'/'.$file.'" title="'.$file.'" class="lightbox_trigger"><img src="'.$thumbnail_directory.'/'.$file.'"></a>';
 	print "\n"; }
 
 //Footer include
