@@ -9,22 +9,6 @@ div.container {
     margin: 0 auto;
     background:rgba(128,128,128,1);
 }
-#wrapper {
-    width:600px;
-    margin:0 auto; /*centers the div horizontally in all browsers (except IE)*/
-    background:#fff;
-    text-align:left; /*resets text alignment from body tag */
-    border:1px solid #ccc;
-    border-top:none;
-    padding:25px;
-    /*Let's add some CSS3 styles, these will degrade gracefully in older browser and IE*/
-    border-radius:0 0 5px 5px;
-    -moz-border-radius:0 0 5px 5px;
-    -webkit-border-radius: 0 0 5px 5px;
-    box-shadow:0 0 5px #ccc;
-    -moz-box-shadow:0 0 5px #ccc;
-    -webkit-box-shadow:0 0 5px #ccc;
-}
 #lightbox {
     position:fixed; /* keeps the lightbox window in the current viewport */
     top:0;
@@ -45,6 +29,5 @@ div.container {
     box-shadow:0 0 25px #111;
     -webkit-box-shadow:0 0 25px #111;
     -moz-box-shadow:0 0 25px #111;
-    max-width:80%;
-    max-height:90%;
+    max-height:95vh;
 }
