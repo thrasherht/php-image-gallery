@@ -9,6 +9,12 @@ div.container {
     margin: 0 auto;
     background:rgba(128,128,128,1);
 }
+div.imagetile {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  float: left;
+}
 #lightbox {
     position:fixed; /* keeps the lightbox window in the current viewport */
     top:0;
