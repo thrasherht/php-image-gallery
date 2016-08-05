@@ -1,22 +1,32 @@
 <?php
-function createthumb($source_image,$destination_image_url, $get_width, $get_height){
+function createthumb($source_image,$destination_image_url, $desired_width, $desired_height){
     if (!file_exists($destination_image_url)){
     ini_set('memory_limit','512M');
     set_time_limit(0);
- 
-    $image_array         = explode('/',$source_image);
+
+    //Check if image is taller or wider, and adjust resize to make clean thumbnails for divs
+    list($img_width, $img_height) = getimagesize($source_image);
+    if($img_height >= $img_width) {
+      $get_height = 200000;
+      $get_width = $desired_width;
+    } else {
+      $get_height = $desired_height;
+      $get_width = 200000;
+    }
+
+    $image_array = explode('/',$source_image);
     $image_name = $image_array[count($image_array)-1];
-    $max_width     = $get_width;
+    $max_width  = $get_width;
     $max_height =$get_height;
     $quality = 50;
- 
+
     //Set image ratio
     list($width, $height) = getimagesize($source_image);
     $ratio = ($width > $height) ? $max_width/$width : $max_height/$height;
     $ratiow = $width/$max_width ;
     $ratioh = $height/$max_height;
     $ratio = ($ratiow > $ratioh) ? $max_width/$width : $max_height/$height;
- 
+
     if($width > $max_width || $height > $max_height) {
         $new_width = $width * $ratio;
         $new_height = $height * $ratio;
@@ -31,7 +41,7 @@ function createthumb($source_image,$destination_image_url, $get_width, $get_heig
         imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
         imagejpeg($image_p, $destination_image_url, $quality);
         imagedestroy($image_p);
- 
+
     } elseif (preg_match("/.png/i", "$source_image")){
         //PNG type thumbnail
         $im = imagecreatefrompng($source_image);
@@ -40,7 +50,7 @@ function createthumb($source_image,$destination_image_url, $get_width, $get_heig
         imagecopyresampled($image_p, $im, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
         imagesavealpha($image_p, true);
         imagepng($image_p, $destination_image_url);
- 
+
     } elseif (preg_match("/.gif/i", "$source_image")){
         //GIF type thumbnail
         $image_p = imagecreatetruecolor($new_width, $new_height);
@@ -50,12 +60,9 @@ function createthumb($source_image,$destination_image_url, $get_width, $get_heig
         imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
         imagegif($image_p, $destination_image_url, $quality);
         imagedestroy($image_p);
- 
+
     } else {
         echo "unable to load image source, error on $source_image";
 	error_log("There are a problem processing the thumbnail for $source_image");
     }
 }}
-//function createcrop($source_thumbnail, $destination_crop, $crop_width, $crop_height){
-//	if (!file_exists($destination_crop)){
-//		};
