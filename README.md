@@ -1,12 +1,11 @@
 # php-image-gallery
+1. Checks for and creates image and thumbnail directory.
+2. Checks for thumbnails and generates them if needed.
+3. Generated thumbnails maintain a set aspect ratio
+  *This helps keep the gallery clean
 
-Checks for and creates image and thumbnail directory.
-Checks for thumbnails and generates them if needed.
-Generating cropped images as well. This helps keep the displayed thumbnails the same ratio, which results in a much cleaner gallery.
+Tested on PHP7, and thumbnail generation is very fast.</br>
+Styling and lightbox setup using
+[Super Simple Lightbox](http://webdesign.tutsplus.com/articles/super-simple-lightbox-with-css-and-jquery--webdesign-3528)
 
-Tested on PHP7, and thumbnail generation seems to be quick.
-
-For the non-bootstrap stuff, using this.
-http://webdesign.tutsplus.com/articles/super-simple-lightbox-with-css-and-jquery--webdesign-3528
-
-This is mainly a testing project, so normally making lots of changes.
+This is mainly a testing project, so things are unlikely to ever stay the same.
