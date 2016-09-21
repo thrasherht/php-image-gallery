@@ -62,7 +62,7 @@ function createthumb($source_image,$destination_image_url, $desired_width, $desi
         imagedestroy($image_p);
 
     } else {
-        echo "unable to load image source, error on $source_image";
+        //echo "unable to load image source, error on $source_image";
 	error_log("There are a problem processing the thumbnail for $source_image");
     }
 }}
