@@ -1,7 +1,7 @@
 <?php
 //configuration
-$image_directory = "images";
-$thumbnail_directory = "thumbs";
+$image_directory = "images/";
+$thumbnail_directory = "thumbs/";
 
 //Pull in included files
 	require('./includes/header.html');
@@ -32,10 +32,15 @@ foreach($scanned_directory as $file) {
 	} else {
 
 	//check for and create thumbnails
-	createthumb("$image_directory/$file","$thumbnail_directory/$file",200,200);
-
+	createthumb("$image_directory$file","$thumbnail_directory$file",200,200);
+	#$thumbpath = "$thumbnail_directory$file";
+	#$imagepath = "$image_directory$file";
+	
+	$thumb = $thumbnail_directory.rawurlencode($file);
+	$image = $image_directory.rawurlencode($file);
+	#echo $thumb;
 	//Create HTML code for each image
-	print '<a href="'.$image_directory.'/'.$file.'" title="'.$file.'" class="lightbox_trigger"><div class="imagetile" style="background: url('.$thumbnail_directory.'/'.$file.') no-repeat;"></div></a>';
+	print '<a href="'.$image.'" title="'.$file.'" class="lightbox_trigger"><div class="imagetile" style="background: url('.$thumb.') no-repeat;"></div></a>';
 	print "\n";
 }}
 //Footer include
