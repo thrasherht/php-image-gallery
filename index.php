@@ -1,7 +1,7 @@
 <?php
 //configuration
-$img_dir = "images/";
-$tmb_dir = "thumbs/";
+$img_dir = 'images/';
+$tmb_dir = 'thumbs/';
 
 //Pull in included files
 	require('./includes/header.html');
@@ -19,17 +19,17 @@ $scanned_directory = array_diff(scandir($img_dir), array('..', '.', '.htaccess',
 foreach($scanned_directory as $file) {
 	//Checking if file extension matches desired type
 	//only resize these files.	
-	if (preg_match("/.png|.jpg|.jpeg|.gif/i", "$file")) {
-	
+	if (preg_match('/.png|.jpg|.jpeg|.gif/i',$file)) {
+
 	//check for and create thumbnails
 	createthumb("$img_dir$file","$tmb_dir$file",200,200);
 	
-	//Sanitize filenames
-	$thumb = $tmb_dir.rawurlencode($file);
-	$image = $img_dir.rawurlencode($file);
-
+        //Sanitize filenames and encode for HTML use
+        $tmb = $tmb_dir.rawurlencode($file);
+        $img = $img_dir.rawurlencode($file);
+	
 	//Create HTML code for each image
-	gen_imgtile ($image,$file,$thumb);
+	gen_imgtile ($img,$file,$tmb);
 
         } else {
 	//Do nothing for files that don't match

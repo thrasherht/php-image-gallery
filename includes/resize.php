@@ -34,7 +34,7 @@ function createthumb($source_image,$destination_image_url, $desired_width, $desi
         $new_width = $width;
         $new_height = $height;
     }
-    if (preg_match("/.jpg|.jpeg/i","$source_image")) {
+    if (preg_match('/.jpg|.jpeg/i',"$source_image")) {
         //JPEG type thumbnail
         $image_p = imagecreatetruecolor($new_width, $new_height);
         $image = imagecreatefromjpeg($source_image);
@@ -42,7 +42,7 @@ function createthumb($source_image,$destination_image_url, $desired_width, $desi
         imagejpeg($image_p, $destination_image_url, $quality);
         imagedestroy($image_p);
 
-    } elseif (preg_match("/.png/i", "$source_image")){
+    } elseif (preg_match('/.png/i', "$source_image")){
         //PNG type thumbnail
         $im = imagecreatefrompng($source_image);
         $image_p = imagecreatetruecolor ($new_width, $new_height);
@@ -51,7 +51,7 @@ function createthumb($source_image,$destination_image_url, $desired_width, $desi
         imagesavealpha($image_p, true);
         imagepng($image_p, $destination_image_url);
 
-    } elseif (preg_match("/.gif/i", "$source_image")){
+    } elseif (preg_match('/.gif/i', "$source_image")){
         //GIF type thumbnail
         $image_p = imagecreatetruecolor($new_width, $new_height);
         $image = imagecreatefromgif($source_image);
@@ -62,7 +62,6 @@ function createthumb($source_image,$destination_image_url, $desired_width, $desi
         imagedestroy($image_p);
 
     } else {
-        //echo "unable to load image source, error on $source_image";
 	error_log("There are a problem processing the thumbnail for $source_image");
     }
 }}
