@@ -34,7 +34,7 @@ function createthumb($source_image,$destination_image_url, $desired_width, $desi
         $new_width = $width;
         $new_height = $height;
     }
-    if (preg_match("/.jpg/i","$source_image") or preg_match("/.jpeg/i","$source_image")) {
+    if (preg_match("/.jpg|.jpeg/i","$source_image")) {
         //JPEG type thumbnail
         $image_p = imagecreatetruecolor($new_width, $new_height);
         $image = imagecreatefromjpeg($source_image);

@@ -1,47 +1,38 @@
 <?php
 //configuration
-$image_directory = "images/";
-$thumbnail_directory = "thumbs/";
+$img_dir = "images/";
+$tmb_dir = "thumbs/";
 
 //Pull in included files
 	require('./includes/header.html');
 	require('./includes/resize.php');
+	require('./includes/functions.php');
 
 //Check for and create directory for images and thumbnails
-if (!is_dir("$image_directory")) {
-    mkdir("$image_directory", 0755, true);
-};
-if (!is_dir("$thumbnail_directory")) {
-    mkdir("$thumbnail_directory", 0755, true);
-};
+chkdir($img_dir);
+chkdir($tmb_dir);
 
-//Setup directory for images
-$directory = "$image_directory";
 //read through image directory and get rid of .. , . , .htaccess , and .ftpquota
-$scanned_directory = array_diff(scandir($directory), array('..', '.', '.htaccess', '.ftpquota'));
+$scanned_directory = array_diff(scandir($img_dir), array('..', '.', '.htaccess', '.ftpquota'));
+
 //loop through all the files from the directory listing
-
 foreach($scanned_directory as $file) {
-  //do your work here
+	//Checking if file extension matches desired type
+	//only resize these files.	
+	if (preg_match("/.png|.jpg|.jpeg|.gif/i", "$file")) {
 	
-	if (preg_match("/.mp4/i", "$file")) {
-
-	//Does nothing here when matched to video files
-	//Other Extensions could be added as well
-
-	} else {
-
 	//check for and create thumbnails
-	createthumb("$image_directory$file","$thumbnail_directory$file",200,200);
-	#$thumbpath = "$thumbnail_directory$file";
-	#$imagepath = "$image_directory$file";
+	createthumb("$img_dir$file","$tmb_dir$file",200,200);
 	
-	$thumb = $thumbnail_directory.rawurlencode($file);
-	$image = $image_directory.rawurlencode($file);
-	#echo $thumb;
+	//Sanitize filenames
+	$thumb = $tmb_dir.rawurlencode($file);
+	$image = $img_dir.rawurlencode($file);
+
 	//Create HTML code for each image
-	print '<a href="'.$image.'" title="'.$file.'" class="lightbox_trigger"><div class="imagetile" style="background: url('.$thumb.') no-repeat;"></div></a>';
-	print "\n";
+	gen_imgtile ($image,$file,$thumb);
+
+        } else {
+	//Do nothing for files that don't match
 }}
 //Footer include
 //Check if bootstrap gallery is enabled
