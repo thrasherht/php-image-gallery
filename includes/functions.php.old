@@ -2,7 +2,7 @@
 
 function gen_imgtile($inputimage,$inputfile,$inputthumb) {
 echo '
-<div class="imagetile lightbox_trigger" href="'.$inputimage.'" style="background: url(',$inputthumb,') no-repeat;">
+<div class="imagetile col lightbox_trigger" style="background: url(',$inputthumb,') no-repeat;">
 </div>';
 };
 
